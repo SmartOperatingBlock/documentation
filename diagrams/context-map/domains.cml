@@ -1,0 +1,52 @@
+Domain SmartOperatingBlock{
+    domainVisionStatement = "The smart operating block domain"
+
+    Subdomain AutomationManagementDomain{
+        domainVisionStatement = "Subdomain responsible for all automation scenarios inside the operating block"
+        type = CORE_DOMAIN
+    }
+    Subdomain SurgicalProcessMonitoringSystemDomain{
+        domainVisionStatement = "Subdomain responsible for the monitoring system inside the operating block"
+        type = CORE_DOMAIN
+    }
+    Subdomain AuthenticationAndTrackingDomain{
+        domainVisionStatement = "Subdomain responsible for the physical authentication and the tracking of the health professionals"
+        type = CORE_DOMAIN
+    }
+    Subdomain SurgeryReportDomain{
+        domainVisionStatement = "Subdomain responsible for the generation of the surgery report"
+        type = CORE_DOMAIN
+    }
+    Subdomain OperatingRoomDashboardDomain{
+        domainVisionStatement = "Subdomain responsible for the dashboard inside each operating room"
+        type = CORE_DOMAIN
+    }
+    Subdomain OperatingBlockDashboardDomain{
+        domainVisionStatement = "Subdomain responsible for the dashboard that manage the entire operating block"
+        type = CORE_DOMAIN
+    }
+    Subdomain BuildingManagementDomain{
+        domainVisionStatement = "Subdomain responsible for managing the environmental condition inside the operating block"
+        type = GENERIC_SUBDOMAIN
+    }
+    Subdomain IssueManagementDomain{
+        domainVisionStatement = "Subdomain responsible for creation and visualization of the issue and the relative closure"
+        type = GENERIC_SUBDOMAIN
+    }
+    Subdomain UserManagementIntegrationDomain{
+        domainVisionStatement = "Subdomain responsible for retrieving users data associated to the health professionals of the ospital"
+        type = SUPPORTING_DOMAIN
+    }
+    Subdomain PatientInformationSystemIntegrationDomain{
+        domainVisionStatement = "Subdomain responsible for retrieving the patients' data"
+        type = SUPPORTING_DOMAIN
+    }
+    Subdomain SurgeryBookingSystemIntegrationDomain{
+        domainVisionStatement = "Subdomain responsible for retrieving the patients' appointments"
+        type = SUPPORTING_DOMAIN
+    }
+    Subdomain MedicalInstrumentIntegrationDomain{
+        domainVisionStatement = "Subdomain responsible for retrieving data from existing medical instruments inside the operating room"
+        type = SUPPORTING_DOMAIN
+    }
+}
