@@ -1,0 +1,50 @@
+import "./domains.cml"
+
+    BoundedContext AutomationManagementContext implements AutomationManagementDomain{
+        type = FEATURE
+        domainVisionStatement = "BoundedContext responsible for all automation scenarios inside the operating block"
+    }
+    BoundedContext SurgicalProcessMonitoringSystemContext implements SurgicalProcessMonitoringSystemDomain{
+        type = FEATURE
+        domainVisionStatement = "BoundedContext responsible for the monitoring system inside the operating block"
+    }
+    BoundedContext AuthenticationAndTrackingContext implements AuthenticationAndTrackingDomain{
+        type = APPLICATION
+        domainVisionStatement = "BoundedContext responsible for the physical authentication and the tracking of the health professionals"
+    }
+    BoundedContext SurgeryReportContext implements SurgeryReportDomain{
+        type = FEATURE
+        domainVisionStatement = "BoundedContext responsible for the generation of the surgery report"
+    }
+    BoundedContext OperatingRoomDashboardContext implements OperatingRoomDashboardDomain{
+        type = SYSTEM
+        domainVisionStatement = "BoundedContext responsible for the dashboard inside each operating room"
+    }
+    BoundedContext OperatingBlockDashboardContext implements OperatingBlockDashboardDomain{
+        type = SYSTEM
+        domainVisionStatement = "BoundedContext responsible for the dashboard that manage the entire operating block"
+    }
+    BoundedContext BuildingManagementContext implements BuildingManagementDomain{
+        type = SYSTEM
+        domainVisionStatement = "BoundedContext responsible for managing the environmental condition inside the operating block"
+    }
+    BoundedContext IssueManagementContext implements IssueManagementDomain{
+        type = FEATURE
+        domainVisionStatement = "BoundedContext responsible for creation and visualization of the issue and the relative closure"
+    }
+    BoundedContext UserManagementIntegrationContext implements UserManagementIntegrationDomain{
+        type = FEATURE
+        domainVisionStatement = "BoundedContext responsible for retrieving users data associated to the health professionals of the ospital"
+    }
+    BoundedContext PatientInformationSystemIntegrationContext implements PatientInformationSystemIntegrationDomain{
+        type = FEATURE
+        domainVisionStatement = "BoundedContext responsible for retrieving the patients' data"
+    }
+    BoundedContext SurgeryBookingSystemIntegrationContext implements SurgeryBookingSystemIntegrationDomain{
+        type = FEATURE
+        domainVisionStatement = "BoundedContext responsible for retrieving the patients' appointments"
+    }
+    BoundedContext MedicalInstrumentIntegrationContext implements MedicalInstrumentIntegrationDomain{
+        type = FEATURE
+        domainVisionStatement = "BoundedContext responsible for retrieving data from existing medical instruments inside the operating room"
+    }
