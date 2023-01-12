@@ -32,7 +32,7 @@ BoundedContext OperatingBlockDashboardContext implements OperatingBlockDashboard
 
 BoundedContext BuildingManagementContext implements BuildingManagementDomain {
     type = SYSTEM
-    domainVisionStatement = "BoundedContext responsible for managing the environmental condition inside the operating block"
+    domainVisionStatement = "BoundedContext responsible for managing information about the operating block and monitoring all the rooms inside it"
     Aggregate RoomAggregate {
         Entity Room {
             aggregateRoot
