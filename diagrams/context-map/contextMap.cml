@@ -32,7 +32,5 @@ ContextMap SmartOperatingBlockSystem{
     AuthenticationAndTrackingContext[D, ACL] <- [U,OHS, PL] UserManagementIntegrationContext
     IssueManagementContext[U] -> [D, ACL]AutomationManagementContext 
     IssueManagementContext[U] -> [D, ACL]OperatingBlockDashboardContext
-	
-    
-
+    AutomationManagementContext[D, ACL] <- [U] BuildingManagementContext
 }
