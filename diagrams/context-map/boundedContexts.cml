@@ -1,50 +1,218 @@
 import "./domains.cml"
 
-    BoundedContext AutomationManagementContext implements AutomationManagementDomain{
-        type = FEATURE
-        domainVisionStatement = "BoundedContext responsible for all automation scenarios inside the operating block"
+BoundedContext AutomationManagementContext implements AutomationManagementDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for all automation scenarios inside the operating block"
+}
+
+BoundedContext SurgicalProcessMonitoringSystemContext implements SurgicalProcessMonitoringSystemDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for the monitoring system inside the operating block"
+}
+
+BoundedContext AuthenticationAndTrackingContext implements AuthenticationAndTrackingDomain{
+    type = APPLICATION
+    domainVisionStatement = "BoundedContext responsible for the physical authentication and the tracking of the health professionals"
+}
+
+BoundedContext SurgeryReportContext implements SurgeryReportDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for the generation of the surgery report"
+}
+
+BoundedContext OperatingRoomDashboardContext implements OperatingRoomDashboardDomain{
+    type = SYSTEM
+    domainVisionStatement = "BoundedContext responsible for the dashboard inside each operating room"
+}
+
+BoundedContext OperatingBlockDashboardContext implements OperatingBlockDashboardDomain{
+    type = SYSTEM
+    domainVisionStatement = "BoundedContext responsible for the dashboard that manage the entire operating block"
+}
+
+BoundedContext BuildingManagementContext implements BuildingManagementDomain{
+    type = SYSTEM
+    domainVisionStatement = "BoundedContext responsible for managing the environmental condition inside the operating block"
+}
+
+BoundedContext IssueManagementContext implements IssueManagementDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for creation and visualization of the issue and the relative closure"
+}
+
+BoundedContext UserManagementIntegrationContext implements UserManagementIntegrationDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for retrieving users data associated to the health professionals of the ospital"
+    Aggregate HealthProfessionalAggregate{
+        Entity HealthProfessional{
+            aggregateRoot
+
+            - HealthProfessionalID hpID
+            - Password password    
+            String name
+            String surname
+            - Gender gender
+            - BirthDate birthdate
+            - EmailAddress emailAddress
+            - PhoneNumber phoneNumber
+            - HealthProfessionalRole role
+        }
+
+        ValueObject HealthProfessionalID {
+            String id
+        }
+
+        ValueObject BirthDate{
+            int day
+            int month
+            int year
+        }
+
+        ValueObject PhoneNumber{
+            String prefix
+            String phoneNumber
+        }
+
+        ValueObject EmailAddress{
+            String emailAddress
+        }
+
+        ValueObject Password{
+            String password
+        }
+
+        enum HealthProfessionalRole{
+            SURGEON, 
+            NURSE, 
+            ANESTHETIST
+        }
+
+        enum Gender{
+            MALE, 
+            FEMALE
+        }
     }
-    BoundedContext SurgicalProcessMonitoringSystemContext implements SurgicalProcessMonitoringSystemDomain{
-        type = FEATURE
-        domainVisionStatement = "BoundedContext responsible for the monitoring system inside the operating block"
+}
+
+BoundedContext PatientInformationSystemIntegrationContext implements PatientInformationSystemIntegrationDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for retrieving the patients' data"
+    Aggregate PatientAggregate{
+        Entity Patient{
+            aggregateRoot
+
+            - TaxCode taxCode   
+            String name
+            String surname
+            - BirthDate birthdate
+            - Height height
+            - Weight weight
+            - BloodGroup bloodGroup
+            - Gender gender
+            - PhoneNumber phoneNumber
+        }
+
+        ValueObject TaxCode {
+            String code
+        }
+
+        ValueObject Height{
+            Double height
+            - LengthUnit lengthUnit        
+        }
+
+        ValueObject Weight{
+            Double weight
+            - MassUnit massUnit        
+        }
+
+        ValueObject BirthDate{
+            int day
+            int month
+            int year
+        }
+
+        ValueObject PhoneNumber{
+            String prefix
+            String phoneNumber
+        }
+
+        enum BloodGroup{
+            A_NEGATIVE, 
+            A_POSITIVE, 
+            B_NEGATIVE, 
+            B_POSITIVE, 
+            ZERO_NEGATIVE, 
+            ZERO_POSITIVE, 
+            AB_NEGATIVE, 
+            AB_POSITIVE
+        }
+
+        enum LengthUnit{
+            CENTIMETER, 
+            METER
+        }
+
+        enum MassUnit{
+            KILOGRAM, 
+            GRAM
+        }
+
+        enum Gender{
+            MALE, 
+            FEMALE
+        }
     }
-    BoundedContext AuthenticationAndTrackingContext implements AuthenticationAndTrackingDomain{
-        type = APPLICATION
-        domainVisionStatement = "BoundedContext responsible for the physical authentication and the tracking of the health professionals"
+}
+
+BoundedContext SurgeryBookingSystemIntegrationContext implements SurgeryBookingSystemIntegrationDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for retrieving the patients' appointments"
+
+    Aggregate SurgeryBookingAggregate{
+        Entity SurgeryBooking{
+            aggregateRoot
+
+            - SurgeryID id
+            - SurgeryDate surgeryDate
+            - SurgeryHour surgeryHour
+            - SurgeryType surgeryType
+            String description
+            - PatientTaxCode patientTaxCode
+            - HealthProfessionalID assignedSurgeon
+        }
+
+        ValueObject SurgeryID{
+            String id
+        }
+
+        ValueObject SurgeryDate{
+            int day
+            int month
+            int year
+        }
+
+        ValueObject SurgeryHour{
+            int hour
+            int minute
+        }
+
+        ValueObject SurgeryType{
+            String surgeryType
+        }
+
+        ValueObject PatientTaxCode {
+            String code
+        }   
+
+        ValueObject HealthProfessionalID{
+            String id
+        }
     }
-    BoundedContext SurgeryReportContext implements SurgeryReportDomain{
-        type = FEATURE
-        domainVisionStatement = "BoundedContext responsible for the generation of the surgery report"
-    }
-    BoundedContext OperatingRoomDashboardContext implements OperatingRoomDashboardDomain{
-        type = SYSTEM
-        domainVisionStatement = "BoundedContext responsible for the dashboard inside each operating room"
-    }
-    BoundedContext OperatingBlockDashboardContext implements OperatingBlockDashboardDomain{
-        type = SYSTEM
-        domainVisionStatement = "BoundedContext responsible for the dashboard that manage the entire operating block"
-    }
-    BoundedContext BuildingManagementContext implements BuildingManagementDomain{
-        type = SYSTEM
-        domainVisionStatement = "BoundedContext responsible for managing the environmental condition inside the operating block"
-    }
-    BoundedContext IssueManagementContext implements IssueManagementDomain{
-        type = FEATURE
-        domainVisionStatement = "BoundedContext responsible for creation and visualization of the issue and the relative closure"
-    }
-    BoundedContext UserManagementIntegrationContext implements UserManagementIntegrationDomain{
-        type = FEATURE
-        domainVisionStatement = "BoundedContext responsible for retrieving users data associated to the health professionals of the ospital"
-    }
-    BoundedContext PatientInformationSystemIntegrationContext implements PatientInformationSystemIntegrationDomain{
-        type = FEATURE
-        domainVisionStatement = "BoundedContext responsible for retrieving the patients' data"
-    }
-    BoundedContext SurgeryBookingSystemIntegrationContext implements SurgeryBookingSystemIntegrationDomain{
-        type = FEATURE
-        domainVisionStatement = "BoundedContext responsible for retrieving the patients' appointments"
-    }
-    BoundedContext MedicalInstrumentIntegrationContext implements MedicalInstrumentIntegrationDomain{
-        type = FEATURE
-        domainVisionStatement = "BoundedContext responsible for retrieving data from existing medical instruments inside the operating room"
-    }
+}
+
+BoundedContext MedicalInstrumentIntegrationContext implements MedicalInstrumentIntegrationDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for retrieving data from existing medical instruments inside the operating room"
+}
+
