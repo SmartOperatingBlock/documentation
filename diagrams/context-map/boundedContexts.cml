@@ -83,22 +83,22 @@ BoundedContext BuildingManagementContext implements BuildingManagementDomain {
             PRE_OPERATING_ROOM, OPERATING_ROOM
         }
     }
-    Aggregate SensorAggregate {
-        Entity Sensor {
-            aggregateRoot
-            - SensorID sensorID
-            String name
-            String description
-            - SensorType sensorType
-            - RoomID roomID
-        }
-        ValueObject SensorID {
-            String id
-        }
-        enum SensorType {
-            TEMPERATURE, HUMIDITY, PRESENCE, LIGHTING
-        }
-    }
+    // Aggregate SensorAggregate {
+    //     Entity Sensor {
+    //         aggregateRoot
+    //         - SensorID sensorID
+    //         String name
+    //         String description
+    //         - SensorType sensorType
+    //         - RoomID roomID
+    //     }
+    //     ValueObject SensorID {
+    //         String id
+    //     }
+    //     enum SensorType {
+    //         TEMPERATURE, HUMIDITY, PRESENCE, LIGHTING
+    //     }
+    // }
     Aggregate MedicalTechnologyAggregate {
         Entity MedicalTechnology {
             aggregateRoot
