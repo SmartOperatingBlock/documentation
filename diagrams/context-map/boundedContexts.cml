@@ -200,12 +200,6 @@ BoundedContext SurgicalProcessMonitoringSystemContext implements SurgicalProcess
     }
 }
 
-BoundedContext AuthenticationAndTrackingContext implements AuthenticationAndTrackingDomain {
-    type = APPLICATION
-    domainVisionStatement = "BoundedContext responsible for the physical authentication and the tracking of the health professionals"
-    knowledgeLevel = META
-}
-
 BoundedContext SurgeryReportContext implements SurgeryReportDomain {
     type = FEATURE
     domainVisionStatement = "BoundedContext responsible for the generation of the surgery report"
@@ -456,7 +450,6 @@ BoundedContext OperatingBlockDashboardContext implements OperatingBlockDashboard
 }
 
 
-
 BoundedContext IssueManagementContext implements IssueManagementDomain {
     type = FEATURE
     domainVisionStatement = "BoundedContext responsible for creation and visualization of the issue and the relative closure"
@@ -482,103 +475,6 @@ BoundedContext IssueManagementContext implements IssueManagementDomain {
         }
         enum IssuePriority {
             BASE, MEDIUM, CRITICAL
-        }
-    }
-}
-
-BoundedContext UserManagementIntegrationContext implements UserManagementIntegrationDomain {
-    type = FEATURE
-    domainVisionStatement = "BoundedContext responsible for retrieving users data associated to the health professionals of the ospital"
-    Aggregate HealthProfessionalAggregate {
-        Entity HealthProfessional {
-            aggregateRoot
-            - HealthProfessionalID hpID
-            - Password password
-            String name
-            String surname
-            - Gender gender
-            Date birthdate
-            - EmailAddress emailAddress
-            - PhoneNumber phoneNumber
-            - HealthProfessionalRole role
-        }
-        ValueObject HealthProfessionalID {
-            String id
-        }
-        ValueObject PhoneNumber {
-            String prefix
-            String phoneNumber
-        }
-        ValueObject EmailAddress {
-            String emailAddress
-        }
-        ValueObject Password {
-            String password
-        }
-        enum HealthProfessionalRole {
-            SURGEON, 
-            NURSE, 
-            ANESTHETIST
-        }
-        enum Gender {
-            MALE, 
-            FEMALE
-        }
-    }
-}
-
-BoundedContext PatientInformationSystemIntegrationContext implements PatientInformationSystemIntegrationDomain {
-    type = FEATURE
-    domainVisionStatement = "BoundedContext responsible for retrieving the patients' data"
-    Aggregate PatientAggregate {
-        Entity Patient {
-            aggregateRoot
-            - TaxCode taxCode
-            String name
-            String surname
-            Date birthdate
-            - Height height
-            - Weight weight
-            - BloodGroup bloodGroup
-            - Gender gender
-            - PhoneNumber phoneNumber
-        }
-        ValueObject TaxCode {
-            String code
-        }
-        ValueObject Height {
-            Double height
-            - LengthUnit lengthUnit
-        }
-        ValueObject Weight {
-            Double weight
-            - MassUnit massUnit
-        }
-        ValueObject PhoneNumber {
-            String prefix
-            String phoneNumber
-        }
-        enum BloodGroup {
-            A_NEGATIVE, 
-            A_POSITIVE, 
-            B_NEGATIVE, 
-            B_POSITIVE, 
-            ZERO_NEGATIVE, 
-            ZERO_POSITIVE, 
-            AB_NEGATIVE, 
-            AB_POSITIVE
-        }
-        enum LengthUnit {
-            CENTIMETER, 
-            METER
-        }
-        enum MassUnit {
-            KILOGRAM, 
-            GRAM
-        }
-        enum Gender {
-            MALE, 
-            FEMALE
         }
     }
 }

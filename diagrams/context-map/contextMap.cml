@@ -1,5 +1,8 @@
 import "./boundedContexts.cml"
 import "./bounded-context/buildingManagement.cml"
+import "./bounded-context/staffTracking.cml"
+import "./bounded-context/patientManagement.cml"
+import "./bounded-context/userManagement.cml"
 
 ContextMap SmartOperatingBlockSystem{
   type = SYSTEM_LANDSCAPE
@@ -7,20 +10,20 @@ ContextMap SmartOperatingBlockSystem{
 
   contains AutomationManagementContext, 
     SurgicalProcessMonitoringSystemContext, 
-    AuthenticationAndTrackingContext, 
+    StaffTrackingContext, 
     SurgeryReportContext, 
     OperatingBlockDashboardContext,
     OperatingRoomDashboardContext, 
     BuildingManagementContext, 
     IssueManagementContext, 
     UserManagementIntegrationContext, 
-    PatientInformationSystemIntegrationContext, 
+    PatientManagementIntegrationContext, 
     SurgeryBookingSystemIntegrationContext, 
     MedicalInstrumentIntegrationContext
 
     SurgicalProcessMonitoringSystemContext[U] -> [D] AutomationManagementContext 
     SurgicalProcessMonitoringSystemContext[U] -> [D] OperatingRoomDashboardContext
-    SurgicalProcessMonitoringSystemContext[D] <- [U, OHS, PL] AuthenticationAndTrackingContext
+    SurgicalProcessMonitoringSystemContext[D] <- [U, OHS, PL] StaffTrackingContext
     SurgicalProcessMonitoringSystemContext[U, S] -> [D, C] SurgeryReportContext
     SurgicalProcessMonitoringSystemContext[U] -> [D] OperatingBlockDashboardContext
     SurgicalProcessMonitoringSystemContext[D, ACL] <- [U] BuildingManagementContext
@@ -29,9 +32,9 @@ ContextMap SmartOperatingBlockSystem{
     AutomationManagementContext[U] -> [D]OperatingRoomDashboardContext
     OperatingBlockDashboardContext[D, ACL] <- [U, PL, OHS]UserManagementIntegrationContext 
     SurgeryReportContext[U] -> [D]OperatingBlockDashboardContext
-    SurgeryReportContext[D, ACL] <- [U, OHS, PL]PatientInformationSystemIntegrationContext
-    OperatingBlockDashboardContext[D, ACL] <- [U, PL, OHS]PatientInformationSystemIntegrationContext
-    AuthenticationAndTrackingContext[D, ACL] <- [U,OHS, PL] UserManagementIntegrationContext
+    SurgeryReportContext[D, ACL] <- [U, OHS, PL]PatientManagementIntegrationContext
+    OperatingBlockDashboardContext[D, ACL] <- [U, PL, OHS]PatientManagementIntegrationContext
+    StaffTrackingContext[D, ACL] <- [U,OHS, PL] UserManagementIntegrationContext
     IssueManagementContext[U] -> [D, ACL]AutomationManagementContext 
     IssueManagementContext[U] -> [D, ACL]OperatingBlockDashboardContext
     AutomationManagementContext[D, ACL] <- [U] BuildingManagementContext

@@ -1,0 +1,52 @@
+import "../domains.cml"
+
+BoundedContext UserManagementIntegrationContext implements UserManagementIntegrationDomain {
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for retrieving users data associated to the health professionals of the ospital"
+    Aggregate HealthProfessionalAggregate {
+        Entity HealthProfessional {
+            aggregateRoot
+            - HealthProfessionalID hpID
+            String name
+            String surname
+            - Gender gender
+            Date birthdate
+            - EmailAddress emailAddress
+            - PhoneNumber phoneNumber
+            - HealthProfessionalRole role
+        }
+        ValueObject HealthProfessionalID {
+            String id
+        }
+        ValueObject PhoneNumber {
+            String prefix
+            String phoneNumber
+        }
+        ValueObject EmailAddress {
+            String emailAddress
+        }
+        enum HealthProfessionalRole {
+            SURGEON, 
+            NURSE, 
+            ANESTHETIST
+        }
+        enum Gender {
+            MALE, 
+            FEMALE
+        }
+    }
+    
+    Aggregate UserAggregate {
+        Entity User {
+            aggregateRoot
+            - UserID userID
+            - Password password
+        }
+        ValueObject UserID {
+            String id
+        }
+        ValueObject Password {
+            String password
+        }
+    }
+}

@@ -1,0 +1,28 @@
+import "../domains.cml"
+
+BoundedContext StaffTrackingContext implements StaffTrackingDomain {
+    type = APPLICATION
+    domainVisionStatement = "BoundedContext responsible for the tracking of the health professionals within the Operating Block."
+    knowledgeLevel = META
+    Aggregate TrackingDataAggregate {
+        Entity TrackingData {
+            aggregateRoot
+            DateTime dateTime
+            - RoomID roomId
+            - HealthProfessionalID healthProfessionalId
+            - TrackingType trackingType
+        }
+
+        ValueObject RoomID {
+            String id
+        }
+
+        ValueObject HealthProfessionalID {
+            String id
+        }
+
+        enum TrackingType {
+            ENTER, EXIT
+        }
+    }
+}

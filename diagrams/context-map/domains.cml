@@ -9,8 +9,8 @@ Domain SmartOperatingBlock{
         domainVisionStatement = "Subdomain responsible for the monitoring system inside the operating block"
         type = CORE_DOMAIN
     }
-    Subdomain AuthenticationAndTrackingDomain{
-        domainVisionStatement = "Subdomain responsible for the physical authentication and the tracking of the health professionals"
+    Subdomain StaffTrackingDomain{
+        domainVisionStatement = "Subdomain responsible for the tracking of the health professionals within the Operating Block"
         type = CORE_DOMAIN
     }
     Subdomain SurgeryReportDomain{
@@ -37,7 +37,7 @@ Domain SmartOperatingBlock{
         domainVisionStatement = "Subdomain responsible for retrieving users data associated to the health professionals of the ospital"
         type = SUPPORTING_DOMAIN
     }
-    Subdomain PatientInformationSystemIntegrationDomain{
+    Subdomain PatientManagementIntegrationDomain{
         domainVisionStatement = "Subdomain responsible for retrieving the patients' data"
         type = SUPPORTING_DOMAIN
     }
