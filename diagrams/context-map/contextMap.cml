@@ -1,4 +1,6 @@
 import "./boundedContexts.cml"
+import "./bounded-context/buildingManagement.cml"
+
 ContextMap SmartOperatingBlockSystem{
   type = SYSTEM_LANDSCAPE
   state = TO_BE

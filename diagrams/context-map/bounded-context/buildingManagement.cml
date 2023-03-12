@@ -1,0 +1,73 @@
+import "../domains.cml"
+
+BoundedContext BuildingManagementContext implements BuildingManagementDomain {
+    type = SYSTEM
+    domainVisionStatement = "BoundedContext responsible for managing information about the operating block and monitoring all the rooms inside it"
+    Aggregate RoomAggregate {
+        Entity Room {
+            aggregateRoot
+            - RoomID id
+            String name
+            - RoomEnvironmentalData environmentalData
+            - RoomType roomType
+            - Zone zone
+        }
+        Entity Zone {
+            - ZoneID id
+            String name
+            String description
+        }
+        ValueObject RoomEnvironmentalData {
+            - Temperature temperature
+            - Humidity humidity
+            - Luminosity luminosity
+            - Presence presence
+        }
+        ValueObject Temperature {
+            double value
+            - TemperatureUnit unit
+        }
+        ValueObject Humidity {
+            double percentage
+        }
+        ValueObject Presence {
+            boolean presenceDetected
+        }
+        ValueObject Luminosity {
+            double value
+            - LightUnit unit
+        }
+        enum TemperatureUnit {
+            CELSIUS, FAHRENHEIT
+        }
+        enum LightUnit {
+            LUX, LUMEN
+        }
+        ValueObject ZoneID {
+            String id
+        }
+        ValueObject RoomID {
+            String id
+        }
+        enum RoomType {
+            PRE_OPERATING_ROOM, OPERATING_ROOM
+        }
+    }
+    Aggregate MedicalTechnologyAggregate {
+        Entity MedicalTechnology {
+            aggregateRoot
+            - MedicalTechnologyID id
+            String name
+            String description
+            - MedicalTechnologyType medicalTechnologyType
+            boolean isInUse
+            - RoomID roomId
+        }
+        ValueObject MedicalTechnologyID {
+            String id
+        }
+        enum MedicalTechnologyType {
+            ENDOSCPE, XRAY
+        }
+    }
+}
