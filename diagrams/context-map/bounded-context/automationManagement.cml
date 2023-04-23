@@ -1,0 +1,42 @@
+import "../domains.cml"
+
+BoundedContext AutomationManagementContext implements AutomationManagementDomain {
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for all automation scenarios inside the operating block"
+    Aggregate MedicalTechnologyAggregate {
+        Entity MedicalTechnology {
+            aggregateRoot
+            - MedicalTechnologyID id
+            - MedicalTechnologyType medicalTechnologyType
+            - RoomID roomId
+        }
+
+        ValueObject MedicalTechnologyID {
+            String id
+        }
+
+        enum MedicalTechnologyType {
+            ENDOSCPE, XRAY
+        }
+
+        ValueObject RoomID {
+            String id
+        }
+    }
+
+    Aggregate ActuatorAggregate {
+        Entity Actuator {
+            aggregateRoot
+            - ActuatorID id
+            - ActuatorType actuatorType
+        }
+
+        ValueObject ActuatorID {
+            String id
+        }
+
+        enum ActuatorType {
+            HEATING, COOLING, VENTILATION, AMBIENT_LIGHT, SURGICAL_LIGHT
+        }
+    }
+}

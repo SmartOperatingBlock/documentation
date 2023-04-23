@@ -1,4 +1,5 @@
 import "./boundedContexts.cml"
+import "./bounded-context/automationManagement.cml"
 import "./bounded-context/buildingManagement.cml"
 import "./bounded-context/staffTracking.cml"
 import "./bounded-context/patientManagement.cml"
