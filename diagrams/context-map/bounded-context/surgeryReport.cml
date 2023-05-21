@@ -1,0 +1,214 @@
+import "../domains.cml"
+
+BoundedContext SurgeryReportContext implements SurgeryReportDomain {
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for the generation of the surgery report"
+    Aggregate SurgeryReportAggregate {
+        Entity SurgeryReport{
+            aggregateRoot
+            - SurgicalProcessID surgicalProcessID
+            DateTime surgeryDate
+            String surgicalProcessDescription
+            - PatientID patientID
+            - Set<Room> roomsInvolved
+            - HealthProfessionalID inChargeHealthProfessional nullable
+            - HealthcareUser healthcareUser nullable
+            - Set<StepAggregateData> stepData
+            - Set<ImplantableMedicalDevice> consumedImplantableMedicalDevices
+            - Set<MedicalTechnologyUsage> medicalTechnologyUsageData
+            - List<TrackingInfo> healthProfessionalTrackingInformation
+            String additionalData
+        }
+
+        ValueObject StepAggregateData {
+            - SurgicalProcessStep step
+            - SurgeryProcessStepAggregateData aggregateData
+        }
+
+        ValueObject SurgicalProcessID {
+            String value
+        }
+
+        ValueObject PatientID {
+            String value
+        }
+
+        ValueObject RoomID {
+            String value
+        }
+        enum RoomType {
+            PRE_OPERATING_ROOM, OPERATING_ROOM
+        }
+
+        Entity Room {
+            - RoomID id
+            - RoomType roomType
+        }
+
+        ValueObject HealthProfessionalID {
+            String value
+        }
+
+        ValueObject TaxCode {
+            String value
+        }
+
+        Entity HealthcareUser{
+            - TaxCode taxCode
+            String name
+            String surname
+        }
+
+        enum SurgicalProcessStep {
+            PATIENT_IN_PREPARATION,
+            PATIENT_ON_OPERATING_TABLE,
+            ANESTHESIA,
+            SURGERY_IN_PROGRESS,
+            END_OF_SURGERY,
+            PATIENT_UNDER_OBSERVATION
+        }
+
+        ValueObject SurgeryProcessStepAggregateData {
+            DateTime startDateTime
+            DateTime stopDateTime nullable
+            - AggregateDataPatientVitalSigns patientVitalSignsAggregateData
+            - Set<PairOfRoomAggregateData> environmentalAggregateData
+        }
+
+        ValueObject PairOfRoomAggregateData {
+            - RoomType roomType
+            - AggregateRoomEnvironmentalData aggregateEnvironmentalData
+        }
+
+        ValueObject AggregateDataPatientVitalSigns {
+            - PatientVitalSigns average
+            - PatientVitalSigns std
+            - PatientVitalSigns maximum
+            - PatientVitalSigns minimum
+        }
+
+        ValueObject PatientVitalSigns {
+            - HeartBeat heartBeat nullable
+            - DiastolicBloodPressure diastolicBloodPressure nullable
+            - SystolicBloodPressure systolicBloodPressure nullable
+            - RespiratoryRate respiratoryRate nullable
+            - SaturationPercentage saturationPercentage nullable
+            - BodyTemperature bodyTemperature nullable
+        }
+
+        ValueObject HeartBeat {
+            int bpm
+        }
+
+        ValueObject DiastolicBloodPressure {
+            int pressure
+        }
+
+        ValueObject SystolicBloodPressure {
+            int pressure
+        }
+
+        ValueObject RespiratoryRate {
+            int rate
+        }
+
+        ValueObject Percentage {
+            double value
+        }
+
+        ValueObject SaturationPercentage {
+            - Percentage percentage
+        }
+
+        ValueObject BodyTemperature {
+            - Temperature temperature
+        }
+
+        ValueObject AggregateRoomEnvironmentalData {
+            - RoomEnvironmentalData average
+            - RoomEnvironmentalData std
+            - RoomEnvironmentalData maximum
+            - RoomEnvironmentalData minimum
+        }
+
+        ValueObject RoomEnvironmentalData {
+            - Temperature temperature nullable
+            - Humidity humidity nullable
+            - Luminosity luminosity nullable
+            - Presence presence nullable
+        }
+
+        ValueObject Temperature {
+            double value
+            - TemperatureUnit unit
+        }
+
+        ValueObject Humidity {
+            double percentage
+        }
+
+        ValueObject Presence {
+            boolean presenceDetected
+        }
+
+        ValueObject Luminosity {
+            double value
+            - LightUnit unit
+        }
+
+        enum TemperatureUnit {
+            CELSIUS, FAHRENHEIT
+        }
+
+        enum LightUnit {
+            LUX, LUMEN
+        }
+
+        Entity ImplantableMedicalDevice {
+            - ImplantableMedicalDeviceID id
+            - ImplantableMedicalDeviceType deviceType
+        }
+
+        ValueObject ImplantableMedicalDeviceID {
+            String value
+        }
+
+        enum ImplantableMedicalDeviceType {
+            CATHETER,
+            PACE_MAKER
+        }
+
+        ValueObject MedicalTechnologyUsage {
+            DateTime dateTime
+            - MedicalTechnology medicalTechnology
+        }
+
+        Entity MedicalTechnology {
+            - MedicalTechnologyID id
+            String name
+            String description nullable
+            - MedicalTechnologyType medicalTechnologyType
+            boolean inUse
+        }
+
+        ValueObject MedicalTechnologyID {
+            String id
+        }
+
+        enum MedicalTechnologyType {
+            ENDOSCPE, XRAY
+        }
+
+        ValueObject TrackingInfo {
+            DateTime dateTime
+            - HealthProfessionalID individual
+            - RoomID roomID
+            - TrackType trackType
+        }
+
+        enum TrackType {
+            ENTER,
+            EXIT
+        }
+    }
+}
