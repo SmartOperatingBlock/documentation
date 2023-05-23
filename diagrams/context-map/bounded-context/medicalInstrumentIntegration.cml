@@ -1,0 +1,56 @@
+import "../domains.cml"
+
+BoundedContext MedicalInstrumentIntegrationContext implements MedicalInstrumentIntegrationDomain {
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for retrieving data from existing medical instruments inside the operating room"
+    Aggregate TelemetrySystemAggregate {
+        Entity TelemetrySystem {
+            aggregateRoot
+            - MedicalInstrumentID medicalInstrumentID
+            - PatientID currentPatientID
+            - TelemetryData currentTelemetryData
+        }
+
+        ValueObject MedicalInstrumentID {
+            String id
+        }
+
+        ValueObject PatientID {
+            String id
+        }
+
+        ValueObject TelemetryData {
+            - BodyTemperature bodyTemperature
+            - Saturation saturation
+            - RespirationRate respirationRate
+            - Heartbeat heartbeat
+            - BloodPressure bloodPressure
+        }
+
+        ValueObject BodyTemperature {
+            double temperature
+            - TemperatureUnit temperatureUnit
+        }
+
+        enum TemperatureUnit {
+            CELSIUS, FAHRENHEIT
+        }
+
+        ValueObject Saturation {
+            int percentage
+        }
+
+        ValueObject RespirationRate {
+            int breathPerMinute
+        }
+
+        ValueObject BloodPressure {
+            int diastolicBloodPressure
+            int systolicBloodPressure
+        }
+
+        ValueObject Heartbeat {
+            int beatPerMinute
+        }
+    }
+}
