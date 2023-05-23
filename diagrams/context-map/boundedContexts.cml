@@ -144,35 +144,6 @@ BoundedContext OperatingBlockDashboardContext implements OperatingBlockDashboard
 }
 
 
-BoundedContext IssueManagementContext implements IssueManagementDomain {
-    type = FEATURE
-    domainVisionStatement = "BoundedContext responsible for creation and visualization of the issue and the relative closure"
-    Aggregate IssueAggregate {
-        Entity Issue {
-            aggregateRoot
-            - IssueID issueID
-            String title
-            String description
-            Datetime issueDatetime
-            - IssueStatus status
-            - RoomID roomID
-            - IssuePriority issuePriority
-        }
-        ValueObject IssueID {
-            String id
-        }
-        enum IssueStatus {
-            OPEN, CLOSED
-        }
-        ValueObject RoomID {
-            String id
-        }
-        enum IssuePriority {
-            BASE, MEDIUM, CRITICAL
-        }
-    }
-}
-
 BoundedContext SurgeryBookingSystemIntegrationContext implements SurgeryBookingSystemIntegrationDomain{
     type = FEATURE
     domainVisionStatement = "BoundedContext responsible for retrieving the patients' appointments"
