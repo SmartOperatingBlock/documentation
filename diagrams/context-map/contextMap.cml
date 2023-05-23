@@ -6,6 +6,7 @@ import "./bounded-context/operatingBlockDashboard.cml"
 import "./bounded-context/operatingRoomDashboard.cml"
 import "./bounded-context/patientManagement.cml"
 import "./bounded-context/staffTracking.cml"
+import "./bounded-context/surgeryBookingIntegration.cml"
 import "./bounded-context/surgeryReport.cml"
 import "./bounded-context/userManagement.cml"
 
@@ -23,7 +24,7 @@ ContextMap SmartOperatingBlockSystem{
     IssueManagementContext, 
     UserManagementIntegrationContext, 
     PatientManagementIntegrationContext, 
-    SurgeryBookingSystemIntegrationContext, 
+    SurgeryBookingIntegrationContext, 
     MedicalInstrumentIntegrationContext
 
     SurgicalProcessMonitoringSystemContext[U] -> [D] AutomationManagementContext 
@@ -32,7 +33,7 @@ ContextMap SmartOperatingBlockSystem{
     SurgicalProcessMonitoringSystemContext[U, S] -> [D, C] SurgeryReportContext
     SurgicalProcessMonitoringSystemContext[U] -> [D] OperatingBlockDashboardContext
     SurgicalProcessMonitoringSystemContext[D, ACL] <- [U] BuildingManagementContext
-    SurgicalProcessMonitoringSystemContext[D, ACL] <- [U,OHS, PL] SurgeryBookingSystemIntegrationContext
+    SurgicalProcessMonitoringSystemContext[D, ACL] <- [U,OHS, PL] SurgeryBookingIntegrationContext
     SurgicalProcessMonitoringSystemContext[D, ACL] <- [U,OHS, PL] MedicalInstrumentIntegrationContext
     AutomationManagementContext[U] -> [D]OperatingRoomDashboardContext
     OperatingBlockDashboardContext[D, ACL] <- [U, PL, OHS]UserManagementIntegrationContext 

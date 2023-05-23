@@ -1,0 +1,37 @@
+import "../domains.cml"
+
+BoundedContext SurgeryBookingIntegrationContext implements SurgeryBookingSystemIntegrationDomain{
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for retrieving the patients' appointments"
+    Aggregate SurgeryBookingAggregate {
+        Entity SurgeryBooking {
+            aggregateRoot
+            - SurgeryID surgeryId
+            - SurgeryType surgeryType
+            - TaxCode healthcareUserTaxCode
+            - HealthProfessionalID healthProfessionalID
+            DateTime surgeryDateTime
+            - PatientID patientID
+        }
+
+        ValueObject SurgeryID {
+            String id
+        }
+
+        ValueObject SurgeryType {
+            String surgeryType
+        }
+        
+        ValueObject TaxCode {
+            String code
+        }
+
+        ValueObject HealthProfessionalID {
+            String id
+        }
+
+        ValueObject PatientID {
+            String id
+        }
+    }
+}

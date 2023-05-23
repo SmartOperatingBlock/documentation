@@ -131,34 +131,6 @@ BoundedContext SurgicalProcessMonitoringSystemContext implements SurgicalProcess
     }
 }
 
-BoundedContext SurgeryBookingSystemIntegrationContext implements SurgeryBookingSystemIntegrationDomain{
-    type = FEATURE
-    domainVisionStatement = "BoundedContext responsible for retrieving the patients' appointments"
-    Aggregate SurgeryBookingAggregate {
-        Entity SurgeryBooking {
-            aggregateRoot
-            - SurgeryID id
-            DateTime surgeryDatetime
-            - SurgeryType surgeryType
-            String description
-            - PatientTaxCode patientTaxCode
-            - HealthProfessionalID assignedSurgeon
-        }
-        ValueObject SurgeryID {
-            String id
-        }
-        ValueObject SurgeryType {
-            String surgeryType
-        }
-        ValueObject PatientTaxCode {
-            String code
-        }
-        ValueObject HealthProfessionalID {
-            String id
-        }
-    }
-}
-
 BoundedContext MedicalInstrumentIntegrationContext implements MedicalInstrumentIntegrationDomain {
     type = FEATURE
     domainVisionStatement = "BoundedContext responsible for retrieving data from existing medical instruments inside the operating room"
