@@ -1,0 +1,7 @@
+import "../domains.cml"
+
+BoundedContext OperatingBlockDashboardContext implements OperatingBlockDashboardDomain {
+    type = SYSTEM
+    domainVisionStatement = "BoundedContext responsible for the dashboard that manage the entire operating block"
+    knowledgeLevel = META
+}

@@ -131,19 +131,6 @@ BoundedContext SurgicalProcessMonitoringSystemContext implements SurgicalProcess
     }
 }
 
-BoundedContext OperatingRoomDashboardContext implements OperatingRoomDashboardDomain {
-    type = SYSTEM
-    domainVisionStatement = "BoundedContext responsible for the dashboard inside each operating room"
-    knowledgeLevel = META
-}
-
-BoundedContext OperatingBlockDashboardContext implements OperatingBlockDashboardDomain {
-    type = SYSTEM
-    domainVisionStatement = "BoundedContext responsible for the dashboard that manage the entire operating block"
-    knowledgeLevel = META
-}
-
-
 BoundedContext SurgeryBookingSystemIntegrationContext implements SurgeryBookingSystemIntegrationDomain{
     type = FEATURE
     domainVisionStatement = "BoundedContext responsible for retrieving the patients' appointments"

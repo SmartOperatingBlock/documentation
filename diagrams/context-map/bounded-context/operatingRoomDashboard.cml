@@ -1,0 +1,7 @@
+import "../domains.cml"
+
+BoundedContext OperatingRoomDashboardContext implements OperatingRoomDashboardDomain {
+    type = SYSTEM
+    domainVisionStatement = "BoundedContext responsible for the dashboard inside each operating room"
+    knowledgeLevel = META
+}
