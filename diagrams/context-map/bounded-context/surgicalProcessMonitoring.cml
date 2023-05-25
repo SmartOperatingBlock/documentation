@@ -1,0 +1,281 @@
+import "../domains.cml"
+
+BoundedContext SurgicalProcessMonitoringSystemContext implements SurgicalProcessMonitoringSystemDomain {
+    type = FEATURE
+    domainVisionStatement = "BoundedContext responsible for the monitoring system inside the operating block"
+
+    Aggregate SurgicalProcessAggregate {
+        Entity SurgicalProcess {
+            aggregateRoot
+            - ProcessId surgeryID
+            DateTime dateTime
+            String processType
+            - PatientId patientId
+            - HealthProfessionalID healthProfessionalId nullable
+            - Room preOperatingRoom nullable
+            - Room operatingRoom nullable
+            - SurgicalProcessState processState
+            - SurgicalProcessStep processStep
+        }
+
+        ValueObject ProcessId {
+            String id
+        }
+
+        ValueObject PatientId {
+            String id
+        }
+
+        enum SurgicalProcessState {
+            PRE_SURGERY, ONGOING_SURGERY, POST_SURGERY, TERMINATED, INTERRUPTED
+        }
+
+        enum SurgicalProcessStep {
+            PATIENT_IN_PREPARATION,
+            PATIENT_ON_OPERATING_TABLE,
+            ANESTHESIA,
+            SURGERY,
+            END_OF_SURGERY,
+            PATIENT_UNDER_OBSERVATION
+        }
+    }
+
+    Aggregate PatientVitalSignAggregate {
+        Entity PatientVitalSign {
+            - ProcessId surgeryID
+            - HeartBeat heartbeat
+            - BloodPressure bloodPressure
+            - RespiratoryRate respiratoryRate
+            - Saturation saturation
+            - BodyTemperature bodyTemperature
+        }
+
+        ValueObject HeartBeat {
+            int bpm
+        }
+        ValueObject BloodPressure {
+            int diastolicBloodPressure
+            int systolicBloodPressure
+            - BloodPressureUnit bloodPressureUnit
+        }
+        ValueObject  RespiratoryRate {
+            int breathsPerMinute
+        }
+        ValueObject Saturation {
+            int percentage
+        }
+        ValueObject BodyTemperature {
+            double temperature
+            - TemperatureUnit temperatureUnit
+        }
+        enum TemperatureUnit {
+            CELSIUS, FAHRENHEIT
+        }
+        enum BloodPressureUnit {
+            MMHG
+        }
+    }
+
+    Aggregate HealthProfessionalInformationAggregate {
+        Entity HealthProfessional {
+            aggregateRoot
+            - HealthProfessionalID healthProfessionalID
+            String name
+            String surname
+            - HealthProfessionalRole role
+            - RoomID roomID
+            DateTime lastUpdateDateTime
+        }
+
+        enum HealthProfessionalRole {
+            SURGEON, 
+            NURSE, 
+            ANESTHETIST
+        }
+
+        ValueObject HealthProfessionalID {
+            String id
+        }
+    }
+
+    Aggregate PatientAggregate {
+        Entity Patient {
+            aggregateRoot
+            - PatientID patientId
+            String name nullable
+            String surname nullable
+            -  PatientVitalSigns medicalData
+        }
+    }
+
+    Aggregate MedicalTechnologyInformationAggregate {
+        Entity MedicalTechnology {
+            aggregateRoot
+            - MedicalTechnologyID medicalTechnologyID
+            - MedicalTechnologyType medicalTechnologyType
+            - ProcessId surgeryID
+            boolean inUse
+            DateTime lastUpdateDateTime
+        }
+
+        ValueObject MedicalTechnologyID {
+            String id
+        }
+
+        enum MedicalTechnologyType {
+            ENDOSCPE, XRAY
+        }
+    }
+
+    Aggregate ImplantableMedicalDeviceInformationAggregate {
+        Entity ImplantableMedicalDevice {
+            aggregateRoot
+            - ImplantableMedicalDeviceID id
+            - ImplantableMedicalDeviceType deviceType
+            - ProcessId surgeryId
+            DateTime usageDateTime
+        }
+
+        ValueObject ImplantableMedicalDeviceID {
+            String code
+        }
+
+        enum ImplantableMedicalDeviceType {
+            PACE_MAKER,
+            CATHETER
+        }
+    }
+
+     Aggregate RoomAggregate {
+        Entity Room {
+            aggregateRoot
+            - RoomID id
+            String name
+            - RoomEnvironmentalData environmentalData
+            - RoomType roomType
+            - Zone zone
+        }
+        Entity Zone {
+            - ZoneID id
+            String name
+            String description
+        }
+        ValueObject RoomEnvironmentalData {
+            - Temperature temperature
+            - Humidity humidity
+            - Luminosity luminosity
+            - Presence presence
+        }
+        ValueObject Temperature {
+            double value
+            - TemperatureUnit unit
+        }
+        ValueObject Humidity {
+            double percentage
+        }
+        ValueObject Presence {
+            boolean presenceDetected
+        }
+        ValueObject Luminosity {
+            double value
+            - LightUnit unit
+        }
+        enum TemperatureUnit {
+            CELSIUS, FAHRENHEIT
+        }
+        enum LightUnit {
+            LUX, LUMEN
+        }
+        ValueObject ZoneID {
+            String id
+        }
+        ValueObject RoomID {
+            String id
+        }
+        enum RoomType {
+            PRE_OPERATING_ROOM, OPERATING_ROOM
+        }
+    }
+    Aggregate SurgeryReportAggregate {
+        Entity SurgeryReport{
+            aggregateRoot
+            - ProcessId surgicalProcessID
+            String surgicalProcessDescription
+            - PatientId patientID
+            - TaxCode patientTaxCode
+            - HealthProfessionalID inChargeHealthProfessional nullable
+            - Room preOperatingRoom nullable
+            - Room operatingRoom nullable
+            - List<PairOfProcessStates> processStates
+            - List<PairOfProcessSteps> processSteps
+            - List<ImplantableMedicalDevice> medicalDevices
+            - List<PairOfMedicalTechnology> medicalTechnologies
+        }
+
+        ValueObject TaxCode {
+            String value
+        }
+
+        ValueObject PatientVitalSigns {
+            - HeartBeat heartBeat nullable
+            - BloodPressure pressure nullable
+            - RespiratoryRate respiratoryRate nullable
+            - Saturation saturationPercentage nullable
+            - BodyTemperature bodyTemperature nullable
+        }
+
+        ValueObject PairOfProcessStates {
+            DateTime dateTime
+            - SurgicalProcessState processState
+        }
+
+
+        ValueObject PairOfProcessSteps {
+            DateTime dateTime
+            - SurgicalProcessStep processStep
+        }
+
+
+        ValueObject PairOfMedicalData {
+            DateTime dateTime
+            - PatientVitalSigns medicalData
+        }
+
+        ValueObject PairOfMedicalTechnology {
+            DateTime dateTime
+            - MedicalTechnology medicalTechnology
+        }
+    }
+    
+    Aggregate SurgeryBookingAggregate {
+        Entity SurgeryBooking {
+            aggregateRoot
+            - SurgeryID surgeryId
+            - SurgeryType surgeryType
+            - TaxCode healthcareUserTaxCode
+            - HealthProfessionalID healthProfessionalID
+            DateTime surgeryDateTime
+            - PatientID patientID
+        }
+
+        ValueObject SurgeryID {
+            String id
+        }
+
+        ValueObject SurgeryType {
+            String surgeryType
+        }
+        
+        ValueObject TaxCode {
+            String code
+        }
+
+        ValueObject HealthProfessionalID {
+            String id
+        }
+
+        ValueObject PatientID {
+            String id
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import "./boundedContexts.cml"
+import "./bounded-context/surgicalProcessMonitoring.cml"
 import "./bounded-context/automationManagement.cml"
 import "./bounded-context/buildingManagement.cml"
 import "./bounded-context/issueManagement.cml"
