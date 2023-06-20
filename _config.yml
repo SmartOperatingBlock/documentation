@@ -1,0 +1,8 @@
+title: SMBOB PROCESS DOCUMENTATION
+description: Website with the Smart Operating Block process documentation
+theme: just-the-docs
+
+url: https://smartoperatingblock.github.io/documentation
+
+aux_links:
+  Template Repository: https://github.com/smartoperatingblock/documentation
