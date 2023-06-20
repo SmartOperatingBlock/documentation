@@ -5,4 +5,4 @@ has_children: true
 nav_order: 2
 ---
 
-## Descrizione del processo adottato
+# Descrizione del processo adottato
