@@ -21,7 +21,7 @@ Di seguito verranno descritti i principali strumenti associando ognuno di essi a
 Esso è stato utilizzato dal team per rappresentare, attraverso un linguaggio pittografico, le Domain stories raccontate dagli esperti di dominio durante i processi di Knowledge Crunching.
 
 <div align="center">
-<img src="imgs/egon.png" alt="Egon.io logo" width="30%">
+<img src="imgs/egon.png" alt="Egon.io logo" width="25%">
 </div>
 
 
@@ -32,7 +32,7 @@ Esso è stato utilizzato dal team per rappresentare, attraverso un linguaggio pi
 Esso è stato utilizzato dal team, per quanto riguarda il Knowledge Crunching, per la creazione di mind-map e l'analisi del dominio mediante diagrammi di casi d'uso e Core Domain Charts. Sfruttando la funzionalità di collaborazione in real-time, è stato possibile ricevere feedback immediati da parte degli esperti del dominio e dei vari componenti del team.
 
 <div align="center">
-<img src="imgs/miro.png" alt="Miro logo" width="30%">
+<img src="imgs/miro.png" alt="Miro logo" width="25%">
 </div>
 
 
@@ -46,9 +46,12 @@ Esso è stato utilizzato dal team, per quanto riguarda il Knowledge Crunching, p
 Esso è stato utilizzato dal team, come anticipato, per la realizzazione del sito di progetto da condividere con i vari stakeholders ed esperti di dominio al fine di creare un unico punto nel quale la conoscenza converge ed evolve in modo organizzato ed accessibile da parte di tutti in modo agevole.
 
 
+
 <div align="center">
-<img src="imgs/confluence.png" alt="Confluence logo" width="40%">
+<img src="imgs/confluence.png" alt="Confluence logo" width="35%">
 </div>
+
+
 
 
 
@@ -60,9 +63,13 @@ Esso è stato utilizzato dal team, come anticipato, per la realizzazione del sit
 
 Esso è stato utilizzato dal team come *Sprint Task Board* al fine di rappresentare e monitorare l'avanzamento dei task durante i vari sprint.
 
+
+
 <div align="center">
-<img src="imgs/trello.png" alt="Trello logo" width="30%">
+<img src="imgs/trello.png" alt="Trello logo" width="25%">
 </div>
+
+
 
 
 
@@ -73,8 +80,10 @@ Esso è stato utilizzato dal team come *Sprint Task Board* al fine di rappresent
 Esso è stato utilizzato dal team per raccogliere tutta la documentazione di progetto interna e per l'organizzazione dei vari sprint settimanali.
 
 <div align="center">
-<img src="imgs/notion.png" alt="Notion logo" width="25%">
+<img src="imgs/notion.png" alt="Notion logo" width="20%">
 </div>
+
+
 
 ## Modelling
 
@@ -89,8 +98,10 @@ Esso è stato utilizzato dal team per raccogliere tutta la documentazione di pro
 Esso è stato utilizzato dal team per la formalizzazione e la descrizione dei sottodomini, dei Bounded Context, della Context Map e dei modelli di dominio.
 
 <div align="center">
-<img src="imgs/contextmapper.png" alt="Context Mapper logo" width="30%">
+<img src="imgs/contextmapper.png" alt="Context Mapper logo" width="25%">
 </div>
+
+
 
 
 
@@ -101,7 +112,7 @@ Esso è stato utilizzato dal team per la formalizzazione e la descrizione dei so
 Esso è stato utilizzato dal team per la creazione dei diagrammi delle classi dei vari sottodomini esportati dal tool Context Mapper descritto precedentemente.
 
 <div align="center">
-<img src="imgs/plantuml.png" alt="PlantUML logo" width="30%">
+<img src="imgs/plantuml.png" alt="PlantUML logo" width="25%">
 </div>
 
 
@@ -113,7 +124,7 @@ Esso è stato utilizzato dal team per la creazione dei diagrammi delle classi de
 Esso è stato utilizzato dal team per la progettazione dei task concorrenti modellati tramite EFSM effettuata per la Centralina di zona (Arduino). Si è preferito utilizzare questo tool al posto di Miro in quanto possiede un maggior supporto per la modellazione di questo tipo di diagrammi.
 
 <div align="center">
-<img src="imgs/lucidchart.png" alt="LucidChart logo" width="30%">
+<img src="imgs/lucidchart.png" alt="LucidChart logo" width="25%">
 </div>
 
 
@@ -125,6 +136,6 @@ Esso è stato utilizzato dal team per la progettazione dei task concorrenti mode
 Esso è stato utilizzato dal team per la creazione dei mockup interattivi delle dashboard e per il design del logo del sistema.
 
 <div align="center">
-<img src="imgs/figma.png" alt="Figma logo" width="20%">
+<img src="imgs/figma.png" alt="Figma logo" width="15%">
 </div>
 
