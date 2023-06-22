@@ -25,7 +25,7 @@ Lo stack *Azure* utilizzato e quindi l'architettura progettata è illustrata in 
 
 
 <div align="center">
-<img id="digitalTwinsArchitecture" src="imgs/digitalTwinsArchitecture.jpg" alt="Digital Twins Architecture schema" width="70%">
+<img id="digitalTwinsArchitecture" src="imgs/digitalTwinsArchitecture.jpg" alt="Digital Twins Architecture schema" width="80%">
 </div>
 
 
