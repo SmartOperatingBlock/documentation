@@ -15,18 +15,14 @@ Inoltre è l'attore principale nel processo di shadowing con i *Digital Twins* e
 Il *Physical layer*, descritto in <a href="#physicalLayerSchema">Figura 1</a>, è governato da due componenti principali:
 
 - **Centralina di zona**: realizzata con *Arduino Mega 2560*, si occupa del monitoraggio di una zona e dell'invio effettivo dei comandi agli attuatori. La centralina di zona non è dotata di alcuna intelligenza, ne tantomento di controllo. Infatti, agisce solamente come scheda di raccolta dati e di esecuzione di comandi senza prendere alcun tipo di decisione e senza essere consapevole dei processi che avvengono all'interno del blocco operatorio. In generale essa si occupa dei seguenti compiti:
-  
   - Monitoraggio dei valori ambientali: temperatura, umidità, luminosità ambientale e presenza persona. Al fine di essere significativi nelle letture ognuno di questi valori necessita di periodi diversi di aggiornamento.
   - Tracciamento degli spostamenti delle persone: è necessario tracciare le entrate e le uscite dei professionisti sanitari e dei pazienti. Non è necessario un sistema di real-time tracking all'interno delle singole stanze.
   - Tracciamento dei dispositivi medici impiantabili: è necessario tracciare l'utilizzo dei dispositivi medici impiantabili. All'interno di ogni sala operatoria vi è un cassonetto intelligente in grado di tracciare le confezioni dei dispositivi medici impiantabili che vengono utilizzati. Questo cassonetto ha un collegamento diretto con la centralina di zona.
   - Monitoraggio della presenza del paziente sul tavolo operatorio: all'interno della sala operatoria vi è anche un tavolo operatorio intelligente dotato di un sensore di pressione atto a comprendere la presenza del paziente sopra di esso. Il tavolo operatorio intelligente ha un collegamento diretto con la centralina di zona.
   - Esecuzione dei comandi provenienti dai layers superiori: riceve i comandi dai layers superiori, dove risiedono il potere e le capacità decisionali e li trasforma nelle azioni appropriate. Le azioni riguardano: gestione del sistema di riscaldamento, raffredamento, ventilazione (per la regolazione dell'umidità), luci ambientali e luci presenti sopra al tavolo operatorio.
   - Comunicazione dello stato al Gateway di blocco: i dati raccolti e lo stato degli attuatori dopo l'esecuzione dei comandi devono essere comunicati in real-time al Gateway di blocco il quale si occuperà del processo di shadowing.
-  
 - **Gateway di blocco**: ogni centralina di zona viene collegata tramite interfaccia seriale al Gateway di blocco, realizzato con *Raspberry Pi 4 model B*. 
-  
   Esso si occuperà di:
-  
   - Effettuare lo *shadowing*: è il responsabile della gestione dello shadowing dello stato delle varie zone sul Digital Twins layer.
   - *Gateway Web of Things*: si è deciso di adottare l'architettura con *gateway* definita all'interno dello standard Web of Things <a href="2">[2]</a> .
 
@@ -38,7 +34,7 @@ Questo permette alla Centralina di zona e quindi ai sensori e agli attuatori di 
 Per quanto riguarda la Centralina di zona, progettata sfruttando Arduino Mega,  è riportato lo schema di collegamento in <a href="#roomControlUnitScheme">Figura 2</a>.
 
 <div align="center">
-<img id="roomControlUnitScheme" src="imgs/room-control-unit-scheme.jpg" alt="Room Control Unit schema" width="70%">
+<img id="roomControlUnitScheme" src="imgs/room-control-unit-scheme.jpg" alt="Room Control Unit schema" width="80%">
 </div>
 
 
