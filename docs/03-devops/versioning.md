@@ -1,5 +1,5 @@
 ---
-title: Version
+title: Versioning
 layout: default
 parent: DevOps
 nav_order: 7
