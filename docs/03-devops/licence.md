@@ -11,12 +11,12 @@ has_children: false
 Considerando che il progetto [*Smart Operating Block*](https://github.com/SmartOperatingBlock) è semplicemente un prototipo realizzato per un esame universitario si è deciso di utilizzare, per ogni repository appartenente all'organizzazione, una licenza che deresponsabilizzasse gli autori da qualunque responsabilità legata all'utilizzo dei software sviluppati. La scelta è ricaduta sulla licenza [*MIT*](https://opensource.org/license/mit/).
 Di seguito una tabella che elenca i permessi, le limitazioni e le condizioni che impone la licenza utilizzata. 
 
-| Permissions      | Limitations | Conditions                     |
+| Permessi      | Limitazioni | Condizioni                     |
 | ---------------- | ----------- | ------------------------------ |
-| ✅ Commercial use | ❌ Liability | ℹ License and copyright notice |
-| ✅ Modification   | ❌ Warranty  |                                |
-| ✅ Distribution   |             |                                |
-| ✅ Private use    |             |                                |
+| ✅ Uso commerciale | ❌ Responsabilità | ℹ License e copyright notice |
+| ✅ Modifica   | ❌ Garanzia  |                                |
+| ✅ Distribuzione   |             |                                |
+| ✅ Uso privato   |             |                                |
 
 Tramite le funzionalità offerte da *Intellij-IDEA* e *VSCode*, utilizzati per lo sviluppo, abbiamo applicato il corrispettivo *Copyright Notice Header* in ogni file sorgente. 
 
