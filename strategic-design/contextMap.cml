@@ -29,20 +29,19 @@ ContextMap SmartOperatingBlockSystem{
     MedicalInstrumentIntegrationContext
 
     SurgicalProcessMonitoringSystemContext[U] -> [D] AutomationManagementContext 
-    SurgicalProcessMonitoringSystemContext[U] -> [D] OperatingRoomDashboardContext
-    SurgicalProcessMonitoringSystemContext[D] <- [U, OHS, PL] StaffTrackingContext
-    SurgicalProcessMonitoringSystemContext[U, S] -> [D, C] SurgeryReportContext
     SurgicalProcessMonitoringSystemContext[U] -> [D] OperatingBlockDashboardContext
-    SurgicalProcessMonitoringSystemContext[D, ACL] <- [U] BuildingManagementContext
+    SurgeryReportContext[D, ACL] <- [U] BuildingManagementContext
     SurgicalProcessMonitoringSystemContext[D, ACL] <- [U,OHS, PL] SurgeryBookingIntegrationContext
     SurgicalProcessMonitoringSystemContext[D, ACL] <- [U,OHS, PL] MedicalInstrumentIntegrationContext
     AutomationManagementContext[U] -> [D]OperatingRoomDashboardContext
     OperatingBlockDashboardContext[D, ACL] <- [U, PL, OHS]UserManagementIntegrationContext 
     SurgeryReportContext[U] -> [D]OperatingBlockDashboardContext
+    SurgeryReportContext[D] <- [U, OHS, PL] StaffTrackingContext
     SurgeryReportContext[D, ACL] <- [U, OHS, PL]PatientManagementIntegrationContext
     OperatingBlockDashboardContext[D, ACL] <- [U, PL, OHS]PatientManagementIntegrationContext
-    StaffTrackingContext[D, ACL] <- [U,OHS, PL] UserManagementIntegrationContext
     IssueManagementContext[U] -> [D, ACL]AutomationManagementContext 
+    SurgicalProcessMonitoringSystemContext[U] -> [D] OperatingRoomDashboardContext
     IssueManagementContext[U] -> [D, ACL]OperatingBlockDashboardContext
     AutomationManagementContext[D, ACL] <- [U] BuildingManagementContext
+    SurgicalProcessMonitoringSystemContext[U, S] -> [D, C] SurgeryReportContext
 }
