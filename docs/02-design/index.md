@@ -14,7 +14,7 @@ Dopo aver analizzato in dettaglio i requisiti del sistema ed aver compreso i pro
 
 ## Design architetturale ad alto livello
 
-In <a href="#simpleArchitecture">Figura 1</a>  è possibile notare la suddivisione in layer caratterizzante il sistema in esame. 
+In <a href="#simpleArchitecture">Figura 1</a> è possibile notare la suddivisione in layer caratterizzante il sistema in esame. 
 
 L'obiettivo del nostro design è proporre una soluzione che sia indipendente da specifiche scelte tecnologiche e che si concentri solamente sui paradigmi e sulle tecniche offrendo un maggior grado di astrazione ed un sistema maggiormente estendibile e manutenibile.
 

@@ -10,13 +10,13 @@ has_children: false
 
 Come supporto delle pratiche del DDD durante tutto il progetto sono stati utilizzati diversi strumenti con lo scopo di agevolare e rendere più produttivo il team e l'interazione con gli esperti di dominio. 
 
-Di seguito verranno descritti i principali strumenti associando ognuno di essi allo scopo per cui è stato utilizzato e suddividendoli
+Di seguito verranno descritti i principali strumenti associando ad ognuno di essi lo scopo per cui è stato utilizzato.
 
 ## Knowledge crunching
 
 ### Egon.io
 
-[Egon.io](https://egon.io/) è un tool di supporto al Domain Storytelling. 
+[Egon.io](https://egon.io/) è un tool di supporto al *Domain Storytelling*. 
 
 Esso è stato utilizzato dal team per rappresentare, attraverso un linguaggio pittografico, le Domain stories raccontate dagli esperti di dominio durante i processi di Knowledge Crunching.
 
@@ -93,7 +93,7 @@ Esso è stato utilizzato dal team per raccogliere tutta la documentazione di pro
 
 ### Context Mapper
 
-[Context Mapper](https://contextmapper.org/) è un framework di modellazione per il design strategico (e tattico) del Domain Driven Design.
+[Context Mapper](https://contextmapper.org/) è un framework di modellazione per il design strategico (e tattico) del Domain-Driven Design.
 
 Esso è stato utilizzato dal team per la formalizzazione e la descrizione dei sottodomini, dei Bounded Context, della Context Map e dei modelli di dominio.
 
@@ -138,4 +138,3 @@ Esso è stato utilizzato dal team per la creazione dei mockup interattivi delle 
 <div align="center">
 <img src="imgs/figma.png" alt="Figma logo" width="15%">
 </div>
-
