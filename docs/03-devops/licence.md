@@ -18,7 +18,9 @@ Di seguito una tabella che elenca i permessi, le limitazioni e le condizioni che
 | ✅ Distribuzione   |             |                                |
 | ✅ Uso privato   |             |                                |
 
-Tramite le funzionalità offerte da *Intellij-IDEA* e *VSCode*, utilizzati per lo sviluppo, abbiamo applicato il corrispettivo *Copyright Notice Header* in ogni file sorgente. 
+Tramite le funzionalità offerte da *Intellij-IDEA* e *VSCode*, utilizzati per lo sviluppo, abbiamo applicato il corrispettivo *Copyright Notice Header* in ogni file sorgente.
+
+Di seguito vengono descritte le licenze delle principali librerie e framework utilizzati.
 
 | Strumento / Libreria / Framework | Licenza                                        |
 | -------------------------------- | ---------------------------------------------- |

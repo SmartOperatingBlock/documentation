@@ -29,22 +29,22 @@ I branch utilizzati dal workflow sono i seguenti:
 Inoltre, al fine di esplicitare maggiormente il significato dei commit si è scelto di utilizzare la specifica *[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)*, che ha semplificato l'utilizzo di tool automatici per il versionamento dell'applicazione. I tipi di commit adottati sono i seguenti:
 
 - `build`: riguardano cambiamenti che interessano il build system oppure dipendenze esterne
-- `chore`: riguardano cambiamenti generici, indica l'aggiunta o la modifica di codice correlato a attività di manutenzione generale, come la gestione dei file o altre attività che non introducono nuove funzionalità o risolvono bug.
+- `chore`: riguardano cambiamenti generici, indica l'aggiunta o la modifica di codice correlato a attività di manutenzione generale come la gestione dei file o altre attività che non introducono nuove funzionalità o risolvono bug
 - `ci`: riguardano cambiamenti nella configurazione dei file e negli script di *Continuous Integration*
 - `docs`: riguardano cambiamenti alla documentazione di progetto
 - `feat`: riguardano l'aggiunta di una nuova feature
 - `fix`: riguardano la risoluzione di un bug
 - `perf`: riguardano un cambiamento del codice per il miglioramento delle performance del sistema
-- `refactor`: riguardano un cambiamento del codice che non risolve un bug e non aggiunge nessuna feature, quindi un'attività di refactoring.
+- `refactor`: riguardano un cambiamento del codice che non risolve un bug e non aggiunge nessuna feature, quindi un'attività di refactoring
 - `style`: riguardano modifiche allo stile del codice che non impattano le funzionalità
-- `revert`: riguardano l'annullamento di modifiche portate da commit precedenti.
+- `revert`: riguardano l'annullamento di modifiche portate da commit precedenti
 - `test`: riguardano l'aggiunta o la modifica di test
 
 Al fine di controllare il corretto utilizzo della specifica *Conventional Commits* ed il rispetto degli standard di qualità sul codice prodotto sono stati utilizzati i seguenti *hook* per *Git*:
 
-- *Pre commit*: si verifica il rispetto degli standard di qualità sul codice mediante l'utilizzo dei task *Gradle* forniti dalle suite di *Quality Assurance* descritte nel seguito
-- *Commit msg*: si verifica il rispetto della specifica *Conventional Commit*
-- *Post commit*: si verifica che il commit prodotto sia *signed*. In caso di mancata firma del commit verrà visualizzato un warning utile per lo sviluppatore, ma non verrà fatto fallire
+- *pre-commit*: verifica il rispetto degli standard di qualità sul codice mediante l'utilizzo dei task *Gradle* forniti dalle suite di *Quality Assurance* descritte in seguito
+- *commit-msg*: verifica il rispetto della specifica *Conventional Commit*
+- *post-commit*: verifica che il commit prodotto sia *signed*. In caso di mancata firma del commit verrà visualizzato un warning utile per lo sviluppatore, ma non verrà fatto fallire
 
 Essi sono stati configurati attraverso il plugin *Gradle* [`gradle-pre-commit-git-hooks`](https://github.com/DanySK/gradle-pre-commit-git-hooks).
 

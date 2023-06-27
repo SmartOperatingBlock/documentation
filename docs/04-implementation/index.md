@@ -1,20 +1,20 @@
 ---
 title: Implementazione
 layout: default
-has_children: true
+has_children: false
 nav_order: 5
 ---
 # Implementazione
 
 Considerando l'obbiettivo della relazione, in questa sezione verranno presentati i principali linguaggi e le principali tecnologie utilizzate senza entrare nei dettagli implementativi. 
 
-## Phisical Layer
+## Physical Layer
 
 La *Centralina di zona* è stata sviluppata utilizzando il linguaggio *C++* sfruttando il framework *Wiring* mentre il *Gateway di blocco* è stato sviluppato utilizzando [*Node-RED*](https://nodered.org/). 
 
 ## Digital Twins Layer 
 
-Per la modellazione dei Digital Twins si è sfruttato il linguaggio *Digital Twins Definition Language* (DTDL) mentre per lo sviluppo della *Azure Function* si è utilizzato *C#*.
+Per la modellazione dei *Digital Twins* si è sfruttato il linguaggio *Digital Twins Definition Language* (DTDL) mentre per lo sviluppo della *Azure Function* si è utilizzato *C#*.
 
 ## Application Layer 
 
@@ -22,7 +22,7 @@ Considerando che ogni microservizio, seguendo i principi dello stile architettur
 Le principali librerie e framework utilizzati sono stati: 
 
 + **Kafka Clients**, per l'interazione con l'event broker
-+ **Ktor**, per la realizzazione delle API Rest
++ **Ktor**, per la realizzazione delle API REST
 + **Kmongo**, per l'interazione con MongoDB
 + **JaCaMo**, per lo sviluppo del sistema multi-agente presente nel microservizio *Automation Management*
 + **Vert.X**, per lo sviluppo del microservizio *API Gateway*
